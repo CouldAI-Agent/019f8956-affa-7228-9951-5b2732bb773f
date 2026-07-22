@@ -34,6 +34,7 @@ class DashboardScreen extends StatelessWidget {
                     childAspectRatio: 2.0,
                     children: [
                       _buildMetricCard(context, 'Active Shipments', '12', Icons.directions_boat),
+                      _buildMetricCard(context, 'Express Shipments', '2', Icons.bolt, iconColor: Colors.amber),
                       _buildMetricCard(context, 'Pending Clearance', '4', Icons.document_scanner),
                       _buildMetricCard(context, 'Delivered This Week', '28', Icons.check_circle),
                       _buildMetricCard(context, 'Revenue', '\$42,500', Icons.attach_money),
@@ -76,14 +77,14 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMetricCard(BuildContext context, String title, String value, IconData icon) {
+  Widget _buildMetricCard(BuildContext context, String title, String value, IconData icon, {Color? iconColor}) {
     return Card(
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Icon(icon, size: 40, color: Theme.of(context).colorScheme.primary),
+            Icon(icon, size: 40, color: iconColor ?? Theme.of(context).colorScheme.primary),
             const SizedBox(width: 16),
             Expanded(
               child: Column(

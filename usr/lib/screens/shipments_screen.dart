@@ -52,6 +52,7 @@ class _ShipmentsScreenState extends State<ShipmentsScreen> {
                 DataColumn(label: Text('Client')),
                 DataColumn(label: Text('Origin')),
                 DataColumn(label: Text('Destination')),
+                DataColumn(label: Text('Type')),
                 DataColumn(label: Text('Status')),
                 DataColumn(label: Text('Actions')),
               ],
@@ -61,6 +62,14 @@ class _ShipmentsScreenState extends State<ShipmentsScreen> {
                   DataCell(Text(shipment.clientName)),
                   DataCell(Text(shipment.origin)),
                   DataCell(Text(shipment.destination)),
+                  DataCell(shipment.isExpress
+                      ? const Chip(
+                          label: Text('Express', style: TextStyle(color: Colors.white, fontSize: 10)),
+                          backgroundColor: Colors.redAccent,
+                          padding: EdgeInsets.zero,
+                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        )
+                      : const Text('Standard')),
                   DataCell(_buildStatusChip(shipment.status)),
                   DataCell(
                     IconButton(
@@ -85,7 +94,16 @@ class _ShipmentsScreenState extends State<ShipmentsScreen> {
         return Card(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: ListTile(
-            title: Text('${shipment.trackingNumber} - ${shipment.clientName}'),
+            title: Row(
+              children: [
+                Expanded(child: Text('${shipment.trackingNumber} - ${shipment.clientName}')),
+                if (shipment.isExpress)
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Icon(Icons.flash_on, color: Colors.redAccent, size: 20),
+                  ),
+              ],
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

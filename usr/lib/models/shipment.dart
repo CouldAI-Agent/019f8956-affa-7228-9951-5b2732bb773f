@@ -6,6 +6,7 @@ class Shipment {
   final String destination;
   final String status;
   final DateTime expectedDelivery;
+  final bool isExpress;
 
   Shipment({
     required this.id,
@@ -15,6 +16,7 @@ class Shipment {
     required this.destination,
     required this.status,
     required this.expectedDelivery,
+    this.isExpress = false,
   });
 
   static List<Shipment> mockData = [
@@ -26,6 +28,7 @@ class Shipment {
       destination: 'Los Angeles, US',
       status: 'In Transit',
       expectedDelivery: DateTime.now().add(const Duration(days: 14)),
+      isExpress: true,
     ),
     Shipment(
       id: '2',
@@ -53,6 +56,7 @@ class Shipment {
       destination: 'Miami, US',
       status: 'Pending',
       expectedDelivery: DateTime.now().add(const Duration(days: 4)),
+      isExpress: true,
     ),
   ];
 }

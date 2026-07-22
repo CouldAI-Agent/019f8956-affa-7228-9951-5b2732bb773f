@@ -3,8 +3,8 @@
 A cross-platform freight forwarding and logistics management application built in Flutter. 
 
 ## Features
-- **Responsive Dashboard:** View key metrics (Active Shipments, Revenue, etc.) dynamically scaling across mobile, tablet, and desktop views.
-- **Shipments Management:** Track and manage shipments. Displays a detailed data table on desktop and compact summary cards on mobile.
+- **Responsive Dashboard:** View key metrics (Active Shipments, Express Shipments, Revenue, etc.) dynamically scaling across mobile, tablet, and desktop views.
+- **Shipments Management:** Track and manage shipments, including prioritizing express deliveries. Displays a detailed data table on desktop and compact summary cards on mobile.
 - **Cross-Platform:** Runs seamlessly on iOS, Android, macOS, Windows, Linux, and the Web.
 
 ## Tech Stack
